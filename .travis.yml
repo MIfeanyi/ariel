@@ -1,12 +1,15 @@
-dist: trusty
-sudo: required
-addons:
-    apt:
-    packages:
-    - libsfml-dev
-
 language: cpp
+include:
+    os: linux
+    dist: trusty
+    sudo: required
+    addons:
+        apt:
+            packages:
+                - libsfml-dev
 
-script:
-    - cmake .
-    - cmake --build . -- -j2
+
+
+    script:
+        - cmake .
+        - make 
