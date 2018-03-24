@@ -14,4 +14,4 @@ matrix:
         script:
             - mkdir build
             - cmake .
-            - make
+            - cmake --build .
