@@ -1,5 +1,10 @@
 dist: trusty
-sudo: false
+sudo: required
+addons:
+    apt:
+    packages:
+    - libsfml-dev
+
 language: cpp
 
 script:
