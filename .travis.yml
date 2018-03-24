@@ -1,15 +1,16 @@
 language: cpp
-include:
-    os: linux
-    dist: trusty
-    sudo: required
-    addons:
-        apt:
-            packages:
-                - libsfml-dev
+matrix:
+    include:
+        os: linux
+        dist: trusty
+        sudo: required
+        addons:
+            apt:
+                packages:
+                    - libsfml-dev
 
 
 
-    script:
-        - cmake .
-        - make 
+        script:
+            - mkdir build
+            - cmake .
