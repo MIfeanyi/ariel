@@ -34,6 +34,7 @@ if(UNIX)
   if(SFML_FOUND)
     include_directories(${SFML_INCLUDE_DIR})
     target_link_libraries(${EXECUTABLE_NAME} ${SFML_LIBRARIES} ${SFML_DEPENDENCIES})
+    
   endif()
 elseif(WIN32)
   set(SFML_DIR "./Library/Frameworks/SFML-2.4.2")
@@ -41,7 +42,7 @@ elseif(WIN32)
   link_directories(${SFML_DIR}/lib/)
   find_library(SFML2 NAMES sfml)
   #set(CMAKE_FIND_LIBRARY_SUFFIXES .lib ${CMAKE_FIND_LIBRARY_SUFFIXES})
-  target_link_libraries(${EXECUTABLE_NAME} sfml-graphics sfml-window sfml-system)
+  target_link_libraries(${EXECUTABLE_NAME} ${SFML_DIR}/sfml-graphics sfml-window sfml-system)
 endif()
 
 # Install target

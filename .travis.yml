@@ -8,6 +8,7 @@ matrix:
             apt:
                 packages:
                     - libsfml-dev
+                    - care
 
 
 
@@ -15,3 +16,6 @@ matrix:
             - mkdir build
             - cmake .
             - cmake --build .
+            - care -o AppDir/ bin/ariel
+            - wget -c -nv "https://github.com/probonopd/linuxdeployqt/releases/download/continuous/linuxdeployqt-continuous-x86_64.AppImage"
+            - chmod a+x linuxdeployqt-continuous-x86_64.AppImage
