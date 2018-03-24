@@ -1,7 +1,6 @@
 #Change this if you need to target a specific CMake version
 cmake_minimum_required(VERSION 2.6)
 
-
 # Enable debug symbols by default
 # must be done before project() statement
 if(NOT CMAKE_BUILD_TYPE)
@@ -18,6 +17,7 @@ configure_file(
   "${PROJECT_SOURCE_DIR}/config.h.in"
   "${PROJECT_BINARY_DIR}/config.h"
   )
+  
 include_directories("${PROJECT_BINARY_DIR}")
 
 # Define sources and executable
@@ -26,15 +26,23 @@ add_executable(${EXECUTABLE_NAME} main.cpp)
 
 
 # Detect and add SFML
-set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake_modules" ${CMAKE_MODULE_PATH})
+set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake_modules/" ${CMAKE_MODULE_PATH})
 #Find any version 2.X of SFML
 #See the FindSFML.cmake file for additional details and instructions
-find_package(SFML 2 REQUIRED network audio graphics window system)
-if(SFML_FOUND)
-  include_directories(${SFML_INCLUDE_DIR})
-  target_link_libraries(${EXECUTABLE_NAME} ${SFML_LIBRARIES} ${SFML_DEPENDENCIES})
+if(UNIX)
+  find_package(SFML 2 REQUIRED network audio graphics window system)
+  if(SFML_FOUND)
+    include_directories(${SFML_INCLUDE_DIR})
+    target_link_libraries(${EXECUTABLE_NAME} ${SFML_LIBRARIES} ${SFML_DEPENDENCIES})
+  endif()
+elseif(WIN32)
+  set(SFML_DIR "./Library/Frameworks/SFML-2.4.2")
+  include_directories(${SFML_DIR}/include/)
+  link_directories(${SFML_DIR}/lib/)
+  find_library(SFML2 NAMES sfml)
+  #set(CMAKE_FIND_LIBRARY_SUFFIXES .lib ${CMAKE_FIND_LIBRARY_SUFFIXES})
+  target_link_libraries(${EXECUTABLE_NAME} sfml-graphics sfml-window sfml-system)
 endif()
-
 
 # Install target
 install(TARGETS ${EXECUTABLE_NAME} DESTINATION bin)
