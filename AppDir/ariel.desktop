@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Ariel Engine
+Exec=ariel
+Icon=ariel
+Type=Application
+Categories=Game;
+Name[en_US]=ariel
+StartupNotify=true

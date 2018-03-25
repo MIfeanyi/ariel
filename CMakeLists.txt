@@ -11,8 +11,8 @@ endif()
 project(ariel)
 
 # Set version information in a config.h file
-set(myproject_VERSION_MAJOR 1)
-set(myproject_VERSION_MINOR 0)
+set(myproject_VERSION_MAJOR 0)
+set(myproject_VERSION_MINOR 1)
 configure_file(
   "${PROJECT_SOURCE_DIR}/config.h.in"
   "${PROJECT_BINARY_DIR}/config.h"
@@ -20,9 +20,12 @@ configure_file(
   
 include_directories("${PROJECT_BINARY_DIR}")
 
+file(GLOB ariel_sources "src/*.cpp")
+#SET( ariel ${ariel_sources})  
+
 # Define sources and executable
 set(EXECUTABLE_NAME "ariel")
-add_executable(${EXECUTABLE_NAME} main.cpp)
+add_executable( ${EXECUTABLE_NAME} ${ariel_sources})
 
 
 # Detect and add SFML

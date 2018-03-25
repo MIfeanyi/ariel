@@ -13,9 +13,14 @@ matrix:
 
 
         script:
-            - mkdir build
-            - cmake .
-            - cmake --build .
-            - care -o AppDir/ bin/ariel
+            - ./gen/AppImage.sh
             - wget -c -nv "https://github.com/probonopd/linuxdeployqt/releases/download/continuous/linuxdeployqt-continuous-x86_64.AppImage"
             - chmod a+x linuxdeployqt-continuous-x86_64.AppImage
+
+deploy:
+  provider: releases
+  api_key: "GITHUB OAUTH TOKEN"
+  file: Ariel_Engine-x86_64.AppImage
+  skip_cleanup: true
+  on:
+    tags: true
