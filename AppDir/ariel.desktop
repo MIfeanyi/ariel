@@ -1,7 +1,8 @@
 [Desktop Entry]
-Name=Milkytracker
-Exec=milkytracker
-Icon=myapp
+Name=Ariel Engine
+Exec=ariel
+Icon=ariel
 Type=Application
-Categories=Audio;
+Categories=Game;
 Name[en_US]=ariel
+StartupNotify=true
