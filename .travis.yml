@@ -10,8 +10,6 @@ matrix:
                     - libsfml-dev
                     - proot
 
-
-
         script:
             - ./gen/AppImage.sh
             - wget -c -nv "https://github.com/probonopd/linuxdeployqt/releases/download/continuous/linuxdeployqt-continuous-x86_64.AppImage"
@@ -23,4 +21,5 @@ deploy:
   file: Ariel_Engine-x86_64.AppImage
   skip_cleanup: true
   on:
+    repo: https://github.com/MIfeanyi/ariel
     tags: true
