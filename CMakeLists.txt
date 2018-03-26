@@ -20,7 +20,7 @@ configure_file(
   
 include_directories("${PROJECT_BINARY_DIR}")
 
-file(GLOB ariel_sources "src/*.cpp")
+file(GLOB ariel_sources "src/*.cpp" "src/*.c")
 #SET( ariel ${ariel_sources})  
 
 # Define sources and executable
