@@ -13,6 +13,8 @@ matrix:
                     - freeglut3-dev
                     - libxmu-dev
                     - libxi-dev
+        before_install:
+            - sudo apt-get update
 
         script:
             - cd gen/
