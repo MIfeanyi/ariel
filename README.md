@@ -11,3 +11,9 @@ Please reach out here or on [Twitter](https://twitter.com/Galatic8bit) .
 # License
 
 This software is provided as is under the MIT License.
+
+# Code of Conduct
+I follow the same [COC](https://www.ubuntu.com/community/code-of-conduct) the Ubuntu Team uses. "Disagreement is no excuse for poor manners." No matter how new to coding / needing of a feature
+
+# Contributing
+We recommend opening up an issue first then making a PR
