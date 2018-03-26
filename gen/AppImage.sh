@@ -15,7 +15,6 @@ wget -nc https://github.com/probonopd/linuxdeployqt/releases/download/continuous
 chmod a+x linuxdeployqt*.AppImage
 ./linuxdeployqt*.AppImage AppDir/ariel.desktop -appimage
 chmod a+x Ariel_Engine-*.AppImage
-echo -e "running generated AppImage"
 ./Ariel_Engine-x86_64.AppImage
 
 #clean up

@@ -13,6 +13,7 @@
 #include <SFML/Window/Event.hpp>
 using namespace std;
 
+void splash();
 static void push_file_as_string(duk_context *ctx, const char *filename) {
     FILE *f;
     size_t len;
@@ -85,7 +86,8 @@ void duk_test(string filename) {
 
 int main()
 {
-    //duk_test("scripts/tests/test.js");
+    splash();
+    duk_test("scripts/tests/test.js");
     sf::RenderWindow window(sf::VideoMode(640, 480), "Ariel Engine");
     window.setFramerateLimit(60);
     ImGui::SFML::Init(window);
