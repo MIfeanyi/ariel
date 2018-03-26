@@ -8,7 +8,6 @@ matrix:
             apt:
                 packages:
                     - libsfml-dev
-                    - libsfml-graphics2*
                     - proot
                     - freeglut3-dev
                     - libxmu-dev
