@@ -13,7 +13,8 @@ matrix:
                     - libxmu-dev
                     - libxi-dev
         before_install:
-            - sudo apt-get update
+            - sudo apt-get -qq update
+            - sudo apt-get install libsfml-dev freeglut3-dev libxmu-dev libxi-dev -y
 
         script:
             - cd gen/
