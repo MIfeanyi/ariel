@@ -92,9 +92,7 @@ int main()
     window.setFramerateLimit(60);
     ImGui::SFML::Init(window);
 
-    sf::CircleShape shape(100.f);
-    shape.setFillColor(sf::Color::Green);
-
+    char input[255] = "";
     sf::Clock deltaClock;
     while (window.isOpen()) {
         sf::Event event;
@@ -108,12 +106,15 @@ int main()
 
         ImGui::SFML::Update(window, deltaClock.restart());
 
-        ImGui::Begin("Hello, world!");
-        ImGui::Button("Look at this pretty button");
+        ImGui::Begin("Load Script");
+        ImGui::InputText("filename", input, 255);
+
+        if (ImGui::Button("Run")){
+            duk_test(input);
+        }
         ImGui::End();
 
         window.clear();
-        window.draw(shape);
         ImGui::SFML::Render(window);
         window.display();
     }
