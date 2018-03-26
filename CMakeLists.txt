@@ -21,8 +21,6 @@ configure_file(
 include_directories("${PROJECT_BINARY_DIR}")
 
 file(GLOB ariel_sources "src/*.cpp" "src/*.c")
-#SET( ariel ${ariel_sources})  
-
 # Define sources and executable
 set(EXECUTABLE_NAME "ariel")
 add_executable( ${EXECUTABLE_NAME} ${ariel_sources})
@@ -45,13 +43,17 @@ if(UNIX)
     target_link_libraries(${EXECUTABLE_NAME} ${SFML_LIBRARIES} ${SFML_DEPENDENCIES})
     
   endif()
-elseif(WIN32)
-  set(SFML_DIR "./Library/Frameworks/SFML-2.4.2")
-  include_directories(${SFML_DIR}/include/)
-  link_directories(${SFML_DIR}/lib/)
+elseif(CMAKE_SIZEOF_VOID_P EQUAL 8)
+  file(GLOB ariel_libs "lib/*.lib")
+  set(SFML_DIR "include/")
+  set(SFML_LIB "lib/")
+  MESSAGE("${SFML_DIR}")
+  include_directories(${SFML_DIR})
+  link_directories(${SFML_LIB})
   find_library(SFML2 NAMES sfml)
   #set(CMAKE_FIND_LIBRARY_SUFFIXES .lib ${CMAKE_FIND_LIBRARY_SUFFIXES})
-  target_link_libraries(${EXECUTABLE_NAME} ${SFML_DIR}/sfml-graphics sfml-window sfml-system)
+  target_include_directories(${EXECUTABLE_NAME} PRIVATE ${SFML_DIR})
+  target_link_libraries(${EXECUTABLE_NAME} ${ariel_libs})
 endif()
 
 # Install target
