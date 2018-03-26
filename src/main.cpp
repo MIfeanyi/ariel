@@ -5,7 +5,7 @@
 #include <string.h>
 #include "duktape.h"
 #include "imgui.h"
-#include "imgui-sfml.h"
+#include "imgui-SFML.h"
 
 #include <SFML/Graphics.hpp> 
 #include <SFML/Graphics/RenderWindow.hpp>
@@ -28,7 +28,7 @@ static void push_file_as_string(duk_context *ctx, const char *filename) {
     }
 }
 
-void duk_test() {
+void duk_test(string filename) {
     duk_context *ctx = NULL;
     char line[4096];
     size_t idx;
@@ -42,7 +42,7 @@ void duk_test() {
         exit(1);
     }
 
-    push_file_as_string(ctx, "process.js");
+    push_file_as_string(ctx, filename.c_str());
     if (duk_peval(ctx) != 0) {
         printf("Error: %s\n", duk_safe_to_string(ctx, -1));
         goto finished;
@@ -85,59 +85,36 @@ void duk_test() {
 
 int main()
 {
-    sf::RenderWindow window(sf::VideoMode(640, 480), "");
-    window.setVerticalSyncEnabled(true);
+    duk_test("scripts/tests/test.js");
+    sf::RenderWindow window(sf::VideoMode(640, 480), "Ariel Engine");
+    window.setFramerateLimit(60);
     ImGui::SFML::Init(window);
- 
-    sf::Color bgColor;
- 
-    float color[3] = { 0.f, 0.f, 0.f };
- 
-    // let's use char array as buffer, see next part
-    // for instructions on using std::string with ImGui
-    char windowTitle[255] = "ImGui + SFML = <3";
- 
-    window.setTitle(windowTitle);
-     
+
+    sf::CircleShape shape(100.f);
+    shape.setFillColor(sf::Color::Green);
+
     sf::Clock deltaClock;
     while (window.isOpen()) {
         sf::Event event;
         while (window.pollEvent(event)) {
             ImGui::SFML::ProcessEvent(event);
- 
+
             if (event.type == sf::Event::Closed) {
                 window.close();
             }
         }
- 
-        ImGui::SFML::Update(deltaClock.restart());
- 
-        ImGui::Begin("Sample window"); // begin window
- 
-        // Background color edit
-        if (ImGui::ColorEdit3("Background color", color)) {
-            // this code gets called if color value changes, so
-            // the background color is upgraded automatically!
-            bgColor.r = static_cast<sf::Uint8>(color[0] * 255.f);
-            bgColor.g = static_cast<sf::Uint8>(color[1] * 255.f);
-            bgColor.b = static_cast<sf::Uint8>(color[2] * 255.f);
-        }
- 
-        // Window title text edit
-        ImGui::InputText("Window title", windowTitle, 255);
- 
-        if (ImGui::Button("Update window title")) {
-            // this code gets if user clicks on the button
-            // yes, you could have written if(ImGui::InputText(...))
-            // but I do this to show how buttons work :)
-            window.setTitle(windowTitle);
-        }
-        ImGui::End(); // end window
- 
-        window.clear(bgColor); // fill background with color
-        ImGui::Render();
+
+        ImGui::SFML::Update(window, deltaClock.restart());
+
+        ImGui::Begin("Hello, world!");
+        ImGui::Button("Look at this pretty button");
+        ImGui::End();
+
+        window.clear();
+        window.draw(shape);
+        ImGui::SFML::Render(window);
         window.display();
     }
- 
+
     ImGui::SFML::Shutdown();
 }
