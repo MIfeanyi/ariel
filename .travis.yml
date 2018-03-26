@@ -9,6 +9,9 @@ matrix:
                 packages:
                     - libsfml-dev
                     - proot
+                    - freeglut3-dev
+                    - libxmu-dev
+                    - libxi-dev
 
         script:
             - ./gen/AppImage.sh
