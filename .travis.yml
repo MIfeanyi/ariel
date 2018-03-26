@@ -19,9 +19,6 @@ matrix:
         script:
             - cd gen/
             - ./AppImage.sh
-            - cd ..
-            - wget -c -nv "https://github.com/probonopd/linuxdeployqt/releases/download/continuous/linuxdeployqt-continuous-x86_64.AppImage"
-            - chmod a+x linuxdeployqt-continuous-x86_64.AppImage
 
 deploy:
   provider: releases
