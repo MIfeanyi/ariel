@@ -1,6 +1,7 @@
 # ariel
 
 [![Build Status](https://travis-ci.org/MIfeanyi/ariel.svg?branch=master)](https://travis-ci.org/MIfeanyi/ariel)
+[![Open Source Helpers](https://www.codetriage.com/mifeanyi/ariel/badges/users.svg)](https://www.codetriage.com/mifeanyi/ariel)
 
 A simple game engine written in C & C++ using [duktape](https://github.com/svaarala/duktape) as it's scripting language, [SFML](https://github.com/SFML/SFML) for graphics, & [IMGUISFML](https://github.com/eliasdaler/imgui-sfml) for GUI.
 
