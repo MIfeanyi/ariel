@@ -17,7 +17,11 @@ configure_file(
   "${PROJECT_SOURCE_DIR}/config.h.in"
   "${PROJECT_BINARY_DIR}/config.h"
   )
-  
+
+set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
+
 include_directories("${PROJECT_BINARY_DIR}")
 
 file(GLOB ariel_sources "src/*.cpp" "src/*.c")

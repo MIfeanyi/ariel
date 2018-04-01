@@ -6,6 +6,7 @@
 #include "duktape.h"
 #include "imgui.h"
 #include "imgui-SFML.h"
+#include "chaiscript/chaiscript.hpp"
 
 #include <SFML/Graphics.hpp> 
 #include <SFML/Graphics/RenderWindow.hpp>
