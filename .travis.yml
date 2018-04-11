@@ -26,5 +26,5 @@ deploy:
   file: Ariel_Engine-x86_64.AppImage
   skip_cleanup: true
   on:
-    repo: https://github.com/MIfeanyi/ariel
+    repo: https://github.com/MIfeanyi/ariel.git
     tags: true
