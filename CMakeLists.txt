@@ -44,7 +44,7 @@ if(UNIX)
     include_directories(${SFML_INCLUDE_DIR})
     target_link_libraries (${EXECUTABLE_NAME} ${OPENGL_LIBRARIES})
     target_link_libraries (${EXECUTABLE_NAME} ${GLUT_LIBRARIES})
-    target_link_libraries(${EXECUTABLE_NAME} ${SFML_LIBRARIES} ${SFML_DEPENDENCIES} pthread)
+    target_link_libraries(${EXECUTABLE_NAME} ${SFML_LIBRARIES} ${SFML_DEPENDENCIES} pthread dl)
     
   endif()
 elseif(CMAKE_SIZEOF_VOID_P EQUAL 8)
