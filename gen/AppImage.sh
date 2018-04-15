@@ -20,5 +20,5 @@ chmod a+x Ariel_Engine-*.AppImage
 
 #clean up
 cd AppDir/ && rm -R -f -- */ && cd ..
-rm -v linuxdeployqt*.AppImage 
+#rm -v linuxdeployqt*.AppImage 
 rm -r  build
