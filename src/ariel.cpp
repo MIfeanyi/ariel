@@ -7,19 +7,22 @@ namespace Ariel{
             window.create(sf::VideoMode(width,height,fullscreen),title);
             window.setFramerateLimit(60);
             ImGui::SFML::Init(window);
+            MState.Init();
     }
     App::~App(){
 
     }
     int App::Run(){
         while (window.isOpen()) {
-            MState.Update(event);
+            Update();
             window.clear();
-            MState.Render(window);
-            Update(); Render();
+            Render();
             window.display();
         }
         ImGui::SFML::Shutdown();
         return 0;
+    }
+    void ChangeState(std::string n){
+        
     }
 }

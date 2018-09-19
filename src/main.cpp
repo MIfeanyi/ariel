@@ -11,7 +11,7 @@ int main(){
   Menu.Init();
   Menu.SetName("Menu");
   Game.Init("Ariel",640,480,false);
-  Game.MState.AddState(Menu);
+  Game.MState.AddState<MenuState>(Menu);
   Game.MState.SwitchState("Menu");
   Game.Run();
   return 0;

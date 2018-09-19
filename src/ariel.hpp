@@ -19,7 +19,6 @@
  * 
  */
 
-class State; class StateManager;
 
 class Graphics;
 
@@ -31,6 +30,8 @@ namespace Ariel
             App();
             void Init(std::string title, int width, int height, bool fullscreen);
             virtual void Update(){
+                MState.Update(&event);
+
                 char input[255] ="";
                 ImGuiWindowFlags window_flags = 0;
                 window_flags |= ImGuiWindowFlags_NoMove;
@@ -51,6 +52,7 @@ namespace Ariel
                 ImGui::End();
             };
             virtual void Render(){
+                MState.Render(window);
                 ImGui::SFML::Render(window);
             };
             int Run();
