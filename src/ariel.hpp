@@ -29,7 +29,9 @@ namespace Ariel
             StateManager MState;
             App();
             void Init(std::string title, int width, int height, bool fullscreen);
+            /*
             virtual void Update(){
+                
                 MState.Update(&event);
 
                 char input[255] ="";
@@ -61,6 +63,6 @@ namespace Ariel
             sf::RenderWindow window;
             sf::Event event;
             sf::Clock deltaClock;
-            chaiscript::ChaiScript cs;
+            chaiscript::ChaiScript cs; */
     };
 }

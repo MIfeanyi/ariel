@@ -1,5 +1,6 @@
 #include "ariel.hpp"
 namespace Ariel{
+    /*
     App::App(){
 
     }
@@ -24,5 +25,5 @@ namespace Ariel{
     }
     void ChangeState(std::string n){
         
-    }
+    } */
 }
