@@ -5,7 +5,11 @@
 #include "game.hpp"
 
 
-int main(){
 
-  return 0;
+Game g;
+
+int main()
+{
+	g.Init();
+	return g.Run();
 }
