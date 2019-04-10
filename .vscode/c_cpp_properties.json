@@ -31,7 +31,8 @@
             "includePath": [
                 "/usr/include",
                 "/usr/local/include",
-                "${workspaceRoot}"
+                "${workspaceRoot}",
+                "${workspaceRoot}/include"
             ],
             "defines": [],
             "intelliSenseMode": "clang-x64",
@@ -79,10 +80,6 @@
                 "limitSymbolsToIncludedHeaders": true,
                 "databaseFilename": ""
             },
-<<<<<<< HEAD
-            "compilerPath": "/usr/bin/clang",
-=======
->>>>>>> c2c3b1a2a5e0358cc1a32fa11514a480a8338853
             "cStandard": "c11",
             "cppStandard": "c++17"
         }
