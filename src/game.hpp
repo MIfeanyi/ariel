@@ -5,7 +5,7 @@
 
 #include "imgui.h"
 #include "imgui-SFML.h"
-#include "state.hpp"
+#include "statemanager.hpp"
 #include "script.hpp"
 
 using namespace std;
@@ -22,12 +22,13 @@ class Game{
                  Update();
                  Render();
              }
+             return 0;
         };
+        StateManager mStates;
     protected:
         sf::RenderWindow window;
         sf::Event event;
         sf::Clock deltaClock;
-        string CurrentState;
         vector <string>States;
         Script script;
         bool Running = true;

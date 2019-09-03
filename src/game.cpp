@@ -12,6 +12,7 @@ void Game::Close(){
 }
 
 void Game::Update(){
+    /*
     char input[255] ="";
     ImGuiWindowFlags window_flags = 0;
     window_flags |= ImGuiWindowFlags_MenuBar;
@@ -29,8 +30,8 @@ void Game::Update(){
     {
         if (ImGui::BeginMenu("File"))
         {
-            if (ImGui::MenuItem("Open..", "Ctrl+O")) { /* Do stuff */ }
-            if (ImGui::MenuItem("Save", "Ctrl+S"))   { /* Do stuff */ }
+            if (ImGui::MenuItem("Open..", "Ctrl+O")) {}
+            if (ImGui::MenuItem("Save", "Ctrl+S"))   { }
             if (ImGui::MenuItem("Close", "Ctrl+W"))  { window.close(); }
             ImGui::EndMenu();
         }
@@ -41,10 +42,14 @@ void Game::Update(){
         script.Eval(input);
     }
     ImGui::End();
+    */
+   mStates.Update(event);
 }
 
 void Game::Render(){
+    /*
     window.clear();
     ImGui::SFML::Render(window);
-    window.display();
+    window.display(); */
+    mStates.Render(window);
 }
