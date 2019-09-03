@@ -1,4 +1,5 @@
 #!/bin/bash
+#UBUNTU ONLY sudo apt-get install libsfml-dev freeglut3-dev 
 clear
 cd .. && mkdir build/
 cd build/
