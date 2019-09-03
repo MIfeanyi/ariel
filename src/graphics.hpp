@@ -1,15 +1,10 @@
 #include <string>
-#include "component.hpp"
+#include <unordered_map>
+#include "sprite.hpp"
 
-class Graphics: public Component {
-    public:
-        Graphics(){};
-        void SetFilename(const std::string& src){
-            this->src = src;
-        }
-        std::string getFilename(){
-            return src;
-        }
-    private:
-        std::string src;
-};
+using EntityID = int64_t;
+
+template <typename Type>
+using ComponentMap = std::unordered_map<EntityID, Type>;
+
+using Sprites = ComponentMap<Sprite>;
