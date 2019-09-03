@@ -1,4 +1,7 @@
 #include "state.hpp"
+
+const int MENU = 0;
+
 class MenuState: public State {
     public:
         sf::CircleShape shape;

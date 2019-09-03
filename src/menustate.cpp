@@ -13,10 +13,12 @@ void MenuState::Update(sf::Event & e){
     shape.setRadius(100);
     shape.setFillColor(sf::Color::Green);
     shape.setPointCount(500);
-    std::cout<<"updating \n";
+    //std::cout<<"updating \n";
 }
 
 void MenuState::Render(sf::RenderWindow &w){
+    w.clear();
     std::cout<<"Drawing circle \n";
     w.draw(shape);
+    w.display();
 }

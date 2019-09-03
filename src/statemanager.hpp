@@ -1,14 +1,29 @@
-#include <vector>
 #include "state.hpp"
+#include <unordered_map>
 
+using StatesID = int64_t;
+
+template <class Type>
+using StatesMap = std::unordered_map<StatesID, Type>;
+using States = StatesMap<State>;
 class StateManager {
     public:
-        void AddState(State S);
+        template <class Type>
+        void AddState(StatesID id, Type & T){
+            states[id] = T;
+        };
         void Init();
         void Run();
-        void Update(sf::Event & e);
-        void Render(sf::RenderWindow &w);
-        bool SwitchState(std::string n);
+        void Update(sf::Event & e){
+            states[current].Update(e);
+        };
+        void Render(sf::RenderWindow &w){
+            states[current].Render(w);
+        };
+        void SwitchState(StatesID id){
+            current = id;
+        };
     private:
-    std::vector<State*> States;
+        StatesID current;
+        States states;
 };
