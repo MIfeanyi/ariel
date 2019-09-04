@@ -4,7 +4,7 @@
 
 void Game::Init(){
     window.create(sf::VideoMode(640, 480), "Ariel Engine");
-    window.setFramerateLimit(60);
+    window.setFramerateLimit(30);
     ImGui::SFML::Init(window);
 }
 void Game::Close(){

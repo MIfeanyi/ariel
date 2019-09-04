@@ -9,8 +9,8 @@ class State {
         virtual void Init(){};
         virtual void Run(){};
         virtual void Clean(){};
-        virtual void Update(sf::Event &e){};
-        virtual void Render(sf::RenderWindow &w){};
+        virtual void Update(sf::Event & e){};
+        virtual void Render(sf::RenderWindow & w){};
         virtual ~State(){};
         void SetName(std::string n);
         std::string GetName();
