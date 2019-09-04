@@ -16,9 +16,14 @@ class StateManager {
         void Run();
         void Update(sf::Event & e){
             states[current].Update(e);
+
         };
-        void Render(sf::RenderWindow &w){
-            states[current].Render(w);
+        void Render(sf::RenderWindow & w){
+            for(auto& [id,state]: states){
+                if(id==current){
+                    states[current].Render(w);
+                }
+            }
         };
         void SwitchState(StatesID id){
             current = id;
