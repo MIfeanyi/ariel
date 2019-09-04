@@ -5,7 +5,7 @@ cd .. && mkdir build/
 cd build/
 cmake .. && cmake --build .
 chmod a+x ariel
-./ariel
+#./ariel
 cd ..
 cp build/ariel bin/
-rm -r  build
+rm -r  build #add for official builds
