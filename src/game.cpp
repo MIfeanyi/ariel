@@ -1,11 +1,10 @@
 #include "game.hpp"
-#include "gui_test.hpp"
 
 
 void Game::Init(){
     window.create(sf::VideoMode(640, 480), "Ariel Engine");
     window.setFramerateLimit(30);
-    ImGui::SFML::Init(window);
+    //ImGui::SFML::Init(window);
 }
 void Game::Close(){
     
@@ -39,17 +38,16 @@ void Game::Update(){
     }
     ImGui::InputText("filename",input,255);
     if(ImGui::Button("Run")){
-        script.Eval(input);
+        //script.Eval(input);
     }
     ImGui::End();
     */
-   mStates.Update(event);
+
 }
 
 void Game::Render(){
-    /*
+    
     window.clear();
     ImGui::SFML::Render(window);
-    window.display(); */
-    mStates.Render(window);
+    window.display();
 }
