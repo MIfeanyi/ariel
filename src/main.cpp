@@ -2,10 +2,11 @@
 #include "config.h" 
 #include "game.hpp"
 
-Game g;
 
 int main()
 {
-	g.Init();
-	return g.Run();
+	Game *g = new Game();
+	g->Init();
+	return g->Run();
+	return 0;
 }

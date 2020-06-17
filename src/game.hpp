@@ -6,6 +6,10 @@
 #include "imgui.h"
 #include "imgui-SFML.h"
 
+#include"component.hpp"
+#include"entity.hpp"
+#include"entitymanager.hpp"
+
 using namespace std;
 
 class Game{
@@ -16,16 +20,21 @@ class Game{
         void Close();
         virtual int Run()
         {
-             while (window.isOpen()) {
+             while (window->isOpen()) {
+                while (window->pollEvent(event)){
+                    if (event.type == sf::Event::EventType::Closed){
+                        window->close();
+                    }
+                }
                  Update();
                  Render();
              }
+             Close();
              return 0;
         };
     protected:
-        sf::RenderWindow window;
+        static sf::RenderWindow *window;
         sf::Event event;
         sf::Clock deltaClock;
-        vector <string>States;
         bool Running = true;
 };
