@@ -1,3 +1,6 @@
+#ifndef GAME_H
+#define GAME_H
+
 #include <SFML/Graphics.hpp> 
 
 #include <string>
@@ -18,6 +21,8 @@ class Game{
         void Update();
         void Render();
         void Close();
+        void TestLevel(int level);
+        static sf::RenderWindow *window;
         virtual int Run()
         {
              while (window->isOpen()) {
@@ -33,8 +38,9 @@ class Game{
              return 0;
         };
     protected:
-        static sf::RenderWindow *window;
         sf::Event event;
         sf::Clock deltaClock;
         bool Running = true;
 };
+
+#endif
