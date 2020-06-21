@@ -1,18 +1,22 @@
 #ifndef TRANSFORM_COMPONENT_H
 #define TRANSFORM_COMPONENT_H
 
+#include <SFML/Graphics.hpp>
+
 #include"../entitymanager.hpp"
 #include"../component.hpp"
 #include"../game.hpp"
 #include"../vector2d.hpp"
 
 class TransformComponent: public Component {
-    public:
+    protected:
         int width;
         int hieght;
         int scale;
         Vector2D position;
         Vector2D velocity;
+        sf::CircleShape shape;
+    public:
         TransformComponent(int posX, int posY, int velX, int velY, int w, int h, int s){
             position.x = posX;
             position.y = posY;
@@ -23,7 +27,8 @@ class TransformComponent: public Component {
             scale = s;
         }
         void Init() override {
-
+            shape.setRadius(50.f);
+            shape.setFillColor(sf::Color(100, 250, 50));
         }
 
         void Update(float deltaTime) override {
@@ -34,9 +39,8 @@ class TransformComponent: public Component {
         }
 
         void Render() override {
-            //render sprite
-            //TODO: call static window renderer from game class
-
+            Game::window->clear(sf::Color::Magenta);
+            Game::window->draw(shape);
         }
 };
 
