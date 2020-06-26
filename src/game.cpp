@@ -1,14 +1,13 @@
 #include "game.hpp"
 
-#include"components/TransformConponent.hpp"
+
 
 EntityManager manager;
-sf::RenderWindow* Game::window;
 
 void Game::Init(){
-    window = new sf::RenderWindow;
-    window->create(sf::VideoMode(640, 480), "Ariel Engine");
-    window->setFramerateLimit(30);
+    window.create(sf::VideoMode(640, 480), "Ariel Engine");
+    window.setFramerateLimit(30);
+    TestLevel(1);
     //ImGui::SFML::Init(window);
 }
 
@@ -27,9 +26,9 @@ void Game::Update(){
 }
 
 void Game::Render(){
-    window->clear();
+    window.clear();
     if(!manager.HasNoEntities()){
-        manager.Render();
+        manager.Render(window);
     }
-    window->display();
+    window.display();
 }

@@ -8,6 +8,7 @@
 #include"../game.hpp"
 #include"../vector2d.hpp"
 
+
 class TransformComponent: public Component {
     protected:
         int width;
@@ -38,9 +39,9 @@ class TransformComponent: public Component {
     
         }
 
-        void Render() override {
-            Game::window->clear(sf::Color::Magenta);
-            Game::window->draw(shape);
+        void Render(sf::RenderWindow &w) override {
+            w.clear(sf::Color::Magenta);
+            w.draw(shape);
         }
 };
 

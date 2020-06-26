@@ -13,9 +13,9 @@ void Entity::Update(float deltaTime){
         component->Update(deltaTime);
     }  
 }
-void Entity::Render(){
+void Entity::Render(sf::RenderWindow &w){
     for (auto& component: components){
-    component->Render();
+    component->Render(w);
     }  
 }
 void Entity::Destroy(){

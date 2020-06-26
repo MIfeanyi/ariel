@@ -6,6 +6,7 @@
 
 #include"entitymanager.hpp"
 #include"component.hpp"
+#include"game.hpp"
 
 class EntityManager;
 class Component;
@@ -20,7 +21,7 @@ class Entity{
         Entity(EntityManager& manager);
         Entity(EntityManager& manager, std::string name);
         void Update(float deltaTime);
-        void Render();
+        void Render(sf::RenderWindow &w);
         void Destroy();
         bool IsActive() const;
         template <typename T,typename ... TArgs>

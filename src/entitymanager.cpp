@@ -10,9 +10,9 @@ void EntityManager::Update(float deltaTime){
         entity->Update(deltaTime);
     }
 }
-void EntityManager::Render(){
+void EntityManager::Render(sf::RenderWindow &w){
     for(auto& entity: entities){
-        entity->Render();
+        entity->Render(w);
     }
 }
 bool EntityManager::HasNoEntities(){

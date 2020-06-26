@@ -5,6 +5,7 @@
 
 #include <string>
 #include <vector>
+#include <iostream>
 
 #include "imgui.h"
 #include "imgui-SFML.h"
@@ -12,6 +13,7 @@
 #include"component.hpp"
 #include"entity.hpp"
 #include"entitymanager.hpp"
+#include"components/TransformConponent.hpp"
 
 using namespace std;
 
@@ -22,13 +24,13 @@ class Game{
         void Render();
         void Close();
         void TestLevel(int level);
-        static sf::RenderWindow *window;
+        sf::RenderWindow window;
         virtual int Run()
         {
-             while (window->isOpen()) {
-                while (window->pollEvent(event)){
+             while (window.isOpen()) {
+                while (window.pollEvent(event)){
                     if (event.type == sf::Event::EventType::Closed){
-                        window->close();
+                        window.close();
                     }
                 }
                  Update();
