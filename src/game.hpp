@@ -9,6 +9,7 @@
 
 #include "imgui.h"
 #include "imgui-SFML.h"
+#include "chaiscript/chaiscript.hpp"
 
 #include"component.hpp"
 #include"entity.hpp"
@@ -24,7 +25,6 @@ class Game{
         void Render();
         void Close();
         void TestLevel(int level);
-        sf::RenderWindow window;
         virtual int Run()
         {
              while (window.isOpen()) {
@@ -43,6 +43,8 @@ class Game{
         sf::Event event;
         sf::Clock deltaClock;
         bool Running = true;
+        chaiscript::ChaiScript chai;
+        sf::RenderWindow window;
 };
 
 #endif
