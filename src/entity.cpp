@@ -24,3 +24,7 @@ void Entity::Destroy(){
 bool Entity::IsActive() const{
     return isActive;
 }
+void Entity::NewComponent(chaiscript::ChaiScript &c){
+	//wrap new ent func
+	//c.add(chaiscript::fun(&ref2func),"funcname");
+}
